@@ -50,12 +50,18 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration',  
+    'dj_rest_auth.registration', 
+    'drf_spectacular', 
     
     
     
     
 ]
+SPECTACULAR_SETTINGS={
+    "TITLE":"Blog API Project",
+    "DESCRIPTION":"A Simple Blog  Api for learning purpose.",
+    "VERSION":"1.0.0",
+}
 REST_FRAMEWORK={
     "DEFAULT_PERMISSION_CLASSES":[
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
@@ -67,6 +73,8 @@ REST_FRAMEWORK={
             "rest_framework.authentication.TokenAuthentication",
             
         ],
+    "DEFAULT_SCHEMA_CLASS":"drf_spectacular.openapi.AutoSchema",
+        
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
