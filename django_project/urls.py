@@ -1,3 +1,4 @@
+from . import views
 from django.contrib import admin
 from django.urls import path, include # new
 from drf_spectacular.views import (
@@ -8,6 +9,7 @@ from drf_spectacular.views import (
 
 
 urlpatterns = [
+    path("",views.home,name='home'),
     path("admin/", admin.site.urls),
     path("api/v1/", include("posts.urls")), 
     path("api-auth/", include("rest_framework.urls")), 
