@@ -1,3 +1,5 @@
+# Use IPython as the default shell for shell_plus
+SHELL_PLUS = "ipython"
 """
 Django settings for django_project project.
 
@@ -56,10 +58,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration', 
     'drf_spectacular', 
-    
-    
-    
-    
+    'django_extensions',
 ]
 SPECTACULAR_SETTINGS={
     "TITLE":"Blog API Project",
