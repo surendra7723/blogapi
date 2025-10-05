@@ -117,9 +117,14 @@ TEMPLATES = [
         },
     },
 ]
-EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
-SITE_ID=1
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+SITE_ID = 1
 WSGI_APPLICATION = 'django_project.wsgi.application'
+
+# Authentication settings
+LOGIN_REDIRECT_URL = '/'  # Redirect to home page after login
+LOGOUT_REDIRECT_URL = '/'  # Redirect to home page after logout
+LOGIN_URL = '/api-auth/login/'  # URL for login page
 
 
 # Database
@@ -164,10 +169,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATICFILES_DIRS=[BASE_DIR/'static']
-STATIC_ROOT= BASE_DIR /"staicfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
+
+# Storage configuration for Django 4.2+ (replaces deprecated STATICFILES_STORAGE)
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

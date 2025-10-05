@@ -1,91 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Django App</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Arial, sans-serif;
-		}
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-		}
-		h1 {
-			margin: 0;
-			font-size: 36px;
-		}
-		nav {
-			background-color: #f2f2f2;
-			padding: 10px;
-			text-align: center;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-		nav a {
-			display: inline-block;
-			padding: 10px;
-			color: #333;
-			text-decoration: none;
-			font-weight: bold;
-		}
-		nav a:hover {
-			background-color: #333;
-			color: #fff;
-		}
-		nav .auth-links {
-			display: flex;
-			align-items: center;
-		}
-		nav .auth-links a {
-			margin-left: 10px;
-		}
-		section {
-			padding: 20px;
-			text-align: center;
-		}
-		section h2 {
-			font-size: 24px;
-			margin-bottom: 20px;
-		}
-		section p {
-			font-size: 18px;
-			line-height: 1.5;
-			margin-bottom: 20px;
-		}
-		footer {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-		}
-	</style>
-</head>
-<body>
-	<header>
-		<h1>My Django App</h1>
-	</header>
-	<nav>
-		<a href="/api/v1/">API v1</a>
-		<a href="/api-auth/login/">Login</a>
-		
-		<a href="/api/v1/dj-rest-auth/">API v1 DJ Rest Auth</a>
-		<a href="/api/v1/dj-rest-auth/registration/">API v1 DJ Rest Auth Registration</a>
-		<a href="{% url 'schema' %}">API Schema</a>
-		<a href="{% url 'redoc' %}">API Schema Redoc</a>
-		<a href="{% url 'swagger-ui' %}">API Schema Swagger UI</a>
-	</nav>
-	<section>
-		<h2>Welcome to My Django App</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, sapien velit bibendum sapien, vel bibendum sapien velit bibendum sapien.</p>
-		<button>Get Started</button>
-	</section>
-	<footer>
-		<p>&copy; 2021 My Django App. All rights reserved.</p>
-	</footer>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Blog API{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Welcome to My Django App</h2>
+    <p>
+        This is a fully-featured Blog API built with Django REST Framework. 
+        Explore our API endpoints, test them with Swagger UI, or dive into the documentation with Redoc.
+    </p>
+    <button class="get-started-btn">Get Started</button>
+</section>
+{% endblock %}
+
